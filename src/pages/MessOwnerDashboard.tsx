@@ -18,6 +18,8 @@ export default function MessOwnerDashboard() {
   useEffect(() => {
     if (!user) return
     fetchData()
+    const interval = setInterval(fetchData, 10000)
+    return () => clearInterval(interval)
   }, [user])
 
   const fetchData = async () => {
